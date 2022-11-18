@@ -16,16 +16,21 @@
                 font-size: 3.5rem;
             }
         }
+        body{
+            background-image: url(https://hiraoka.com.pe/media/mageplaza/blog/post/t/i/tipos-de-audifonos.jpg);
+            background-size: cover;
+            background-repeat:no-repeat;
+        }
     </style>
 
+    <div class="album py-5">
 
-    <div class="album py-5 bg-light">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 @foreach($musicas as $musica)
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img height="240" src="mostrarImagen/{{$musica->ruta}}" alt="Imagen">
+                        <img height="300" src="mostrarImagen/{{$musica->ruta}}" alt="Imagen">
                         <div class="card-body">
                             <p class="card-text">
                                 <b>

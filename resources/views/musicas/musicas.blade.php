@@ -3,6 +3,19 @@
 @section('content')
 <main>
     <style>
+        .container{
+            background:black;
+            color:black;
+            width: 100rem;
+            height: 20rem;
+            border: 5px ;
+            font-size: x-large;
+            font-size: 250%;
+        }
+        h1{
+            font-size: 200%;
+            text-align:center;
+        }
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -11,19 +24,25 @@
             user-select: none;
         }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+        body{
+            background-image: url(https://i.cbc.ca/1.5690116.1629294584!/fileImage/httpImage/canadian-music-class-challenge-2021-prizes.jpg);
+            background-size: cover;
+            background-repeat:repeat;
+        }
+        #color{
+            color: pink;
+        }
+        #tamaño{
+            font-size: 1.125rem;
         }
     </style>
-    <div class="album py-5 bg-light">
+    <div class="album py-4">
         <div class="container">
             <form action="{{ route('subirMusica') }}" method="POST" enctype="multipart/form-data" class="row g-3">
                 @csrf
                 <h1><label for="staticEmail2" class="text-info"><b>Subir Musica</b></label></h1>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label"><b>Nombre de la canción</b></label>
+                    <label id="color" for="exampleFormControlInput1" class="form-label"><b>Nombre de la canción</b></label>
                     <input type="text" class="form-control" name="nombre_musica" placeholder="Agregue nombre de la canción">
                 </div>
                 <div class="col-auto">
@@ -40,10 +59,10 @@
                 @foreach($musicas as $musica)
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img height="240" src="mostrarImagen/{{$musica->ruta}}" alt="Imagen">
+                        <img height="300" src="mostrarImagen/{{$musica->ruta}}" alt="Imagen">
                         <div class="card-body">
                             <p class="card-text">
-                                <b>
+                                <b id="tamaño">
                                     <center>{{$musica->nombre_musica}}</center>
                                 </b>
                             </p>

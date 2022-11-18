@@ -17,14 +17,14 @@
                                     </button>
                                 </p>
                             </div>
-                            <b>{{ __('Musgrove') }}</b>
+                            <b>{{ __('Grovemusic') }}</b>
                         </h2>
                     </div>
                     <div>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="text-center m-3">
-                                <small><b>Para continuar, inicia sesion en Musgrove</b></small>
+                                <small><b>Para continuar, inicia sesion en Grovemusic</b></small>
                             </div>
 
                             <div class="row mb-3">

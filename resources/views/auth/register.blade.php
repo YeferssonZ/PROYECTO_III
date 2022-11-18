@@ -38,7 +38,7 @@
                                 </p>
                             </div>
                             <b>
-                                {{ __('Musgrove') }}
+                                {{ __('Grovemusic') }}
                             </b>
                         </h2>
                     </div>
