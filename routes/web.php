@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\MusicaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,5 @@ Route::get('/mostrarCancion/{nombre}', [App\Http\Controllers\MusicaController::c
 Route::get('/mostrarImagen/{nombre}', [App\Http\Controllers\MusicaController::class, 'mostrarImagen'])->name('mostrarImagen');
 Route::post('/subirComentario', [App\Http\Controllers\MusicaController::class, 'subirComentario'])->name('subirComentario');
 Route::post('/crearReaccion', [App\Http\Controllers\MusicaController::class, 'crearReaccion'])->name('crearReaccion');
-
+Route::get('/downloadMusic', [MusicaController::class, 'downloadMusic'])->name('downloadMusic');
+route::get('/download/{ruta_mp3}', [App\Http\Controllers\MusicaController::class, 'download'])->name('download');

@@ -8,7 +8,7 @@ use App\Models\Comentario;
 use App\Models\Reaction;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-
+use \Illuminate\Auth\Access\Response;
 
 class MusicaController extends Controller
 {
@@ -87,7 +87,6 @@ class MusicaController extends Controller
         $file = Storage::disk('fotos')->get($nombre);
         return Image::make($file)->response();
     }
-
     public function crearReaccion(Request $request)
     {
         $id = auth()->user()->id;
@@ -96,5 +95,22 @@ class MusicaController extends Controller
         $reaction->musica_id = $request->id_musica;
         $reaction->save();
         return redirect('/home');
+    }
+
+    public function downloadMusic(Request $request)
+    {
+        if (Storage::disk('local')->exists ("musicas/$request->file")){
+            $path = Storage::disk('local')->path("musicas/$request->file");
+            $content = file_get_contents($path);
+            return response($content)->withHeaders([
+                'Content-Type'=>mime_content_type($path)
+            ]);
+        }
+        return redirect('/404');
+    }
+    public function download($path)
+    {
+        $path = storage_path('app/musicas/archivo.mp3');
+        return response()->download($path);
     }
 }

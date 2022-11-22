@@ -16,10 +16,11 @@
                 font-size: 3.5rem;
             }
         }
-        body{
+
+        body {
             background-image: url(https://hiraoka.com.pe/media/mageplaza/blog/post/t/i/tipos-de-audifonos.jpg);
             background-size: cover;
-            background-repeat:no-repeat;
+            background-repeat: no-repeat;
         }
     </style>
 
@@ -37,8 +38,14 @@
                                     <center>{{$musica->nombre_musica}}</center>
                                 </b>
                             </p>
-                            <center><audio controls="" style="vertical-align: middle" src="mostrarCancion/{{$musica->ruta_mp3}}" type="audio/mp3" controlslist="nodownload">
+                            <div>
+                            <center><audio controls="" style="vertical-align: middle" src="mostrarCancion/{{$musica->ruta_mp3}}" type="audio/mp3" controlslist="nodownload" >
                                 </audio></center>
+                                
+                                <a href="{{ route('downloadMusic',$musica->ruta_mp3) }}" class="btn btn-primary">Download</a>
+                                <a href="{{route('download', $musica->id)}}" class="btn btn-primary">Download File</a>
+
+                            </div>   
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <p> <i class="bi bi-chat-dots"></i>
@@ -50,7 +57,7 @@
                                         @csrf
                                         <input type="hidden" name="id_musica" value="{{$musica->id}}">
                                         <p> <i class="bi bi-heart_fill"></i>
-                                            <button class="btn " type="submit" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="collapseExample">
+                                            <button class="btn " type="submit" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">
                                                 <x-bi-heart-fill class="text-danger" /> {{count($musica->reaction)}}
                                             </button>
                                         </p>
